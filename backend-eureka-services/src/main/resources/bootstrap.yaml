@@ -1,12 +1,7 @@
-server:
-  port: 8081
 spring:
   application:
-    name: backend-config-services
+    name: backend-eureka-services
   cloud:
     config:
-      server:
-        git:
-          default-label: master
-          uri: https://github.com/Altobert/mingeso-microservices
-          search-paths: "Unidad 2/Aplicación-microservicio-avanzado-postgresql/config-data"
+      enabled: true
+      uri: http://localhost:8081
