@@ -8,5 +8,4 @@ spring:
       server:
         git:
           default-label: main
-          uri: https://github.com/Altobert/mingeso-microservices
-          search-paths: "Unidad 2/Aplicación-microservicio-avanzado-postgresql/config-data"
+          uri: https://github.com/Altobert/mingeso-microservices/tree/main/config-data          

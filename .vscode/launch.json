@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "BackendEurekaServicesApplication",
+            "request": "launch",
+            "mainClass": "cl.mingeso.app.BackendEurekaServicesApplication",
+            "projectName": "backend-eureka-services"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-BackendConfigServicesApplication<backend-config-services>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "cl.mingeso.app.BackendConfigServicesApplication",
+            "projectName": "backend-config-services",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "noDebug": false,
+            "__progressId": "afaa0db9-161b-4e0a-ba95-214aa6c73da8",
+            "__origin": "internal"
+        }
+    ]
+}
