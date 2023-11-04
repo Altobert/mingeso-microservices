@@ -7,30 +7,30 @@ cd ../
 
 
 cd backend-estudiantes-services
-mvn clean install -DskipTests-true
+./mvnw clean package install -DskipTests=True
 docker build -t altobert/backend-estudiantes-services .
 docker push altobert/backend-estudiantes-services
 cd ../
 
 
 cd backend-gateway-services
-mvn clean install -DskipTests-true
+./mvnw clean package install -DskipTests=True
 docker build -t altobert/backend-gateway-services .
 docker push altobert/backend-gateway-services
 cd ../
 
 
 cd backend-cuotas-services
-mvn clean install -DskipTests-true
+./mvnw clean package install -DskipTests=True
 docker build -t altobert/backend-cuotas-services .
 docker push altobert/backend-cuotas-services
 cd ../
 
 
 cd backend-eureka-services
-mvn clean install -DskipTests-true
-docker build -t altobert/backend-cuotas-services .
-docker push altobert/backend-cuotas-services
+./mvnw clean package install -DskipTests=True
+docker build -t altobert/backend-eureka-services .
+docker push altobert/backend-eureka-services
 cd ../
 
 
