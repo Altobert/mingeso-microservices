@@ -1,62 +1,39 @@
-D:
-cd '.\Simon\progra\Tingeso-Mingeso\Mingeso-Tingeso-Ayudantia\Unidad 2\Aplicación-kubernetes-postgresql\'
-
-cd backend-config-service
-mvn clean install -DskipTests=True
-docker build -t simonsaez/topeducation-config-postgres .
-docker push simonsaez/topeducation-config-postgres
-cd ../
-
-cd backend-eureka-service
-mvn clean install -DskipTests=True
-docker build -t simonsaez/topeducation-eureka-postgres .
-docker push simonsaez/topeducation-eureka-postgres
-cd ../
-
-cd backend-gateway-service
-mvn clean install -DskipTests=True
-docker build -t simonsaez/topeducation-gateway-postgres .
-docker push simonsaez/topeducation-gateway-postgres
-cd ../
-
-cd backend-estudiantes-service
-mvn clean install -DskipTests=True
-docker build -t simonsaez/topeducation-estudiantes-postgres .
-docker push simonsaez/topeducation-estudiantes-postgres
-cd ../
-
-cd backend-cuotas-service
-mvn clean install -DskipTests=True
-docker build -t simonsaez/topeducation-cuotas-postgres .
-docker push simonsaez/topeducation-cuotas-postgres
-cd ../
-
-cd frontend-service
-docker build -t simonsaez/topeducation-frontend-postgres .
-docker push simonsaez/topeducation-frontend-postgres
-cd ../
 
 
 ---------------------------------------------------------
-
+para iniciar springboo: mvn spring-boot:run
 
 minikube start
 minikube status
 
-cd Minikube
+primero:
 
-kubectl apply -f frontend-deployment-service.yml
+cd Minikube
 
 kubectl apply -f postgres-secrets.yml
 kubectl apply -f postgres-configmap.yml
 kubectl apply -f postgres-dp-sv-pvc.yml
 
+
+kubectl exec -it postgres-99f956b4f-8fbgz bash
+psql -h postgres -U postgres
+
+CREATE DATABASE topeducationestudiantes;
+CREATE DATABASE topeducationcuotas;
+
+----------------------------------------------
+
 kubectl apply -f backend-config-deployment-service.yml
+kubectl apply -f frontend-deployment-service.yml
+
+
 kubectl apply -f backend-eureka-deployment-service.yml
 
-kubectl apply -f backend-estudiantes-deployment-service.yml
 kubectl apply -f backend-cuotas-deployment-service.yml
+kubectl apply -f backend-estudiantes-deployment-service.yml
 kubectl apply -f backend-gateway-deployment-service.yml
+
+minikube service frontend-service
 
 
 ---------------------------------------------------------

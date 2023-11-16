@@ -1,6 +1,6 @@
 
 cd backend-config-services
-mvn clean install -DskipTests-true
+./mvnw clean package install -DskipTests=True
 docker build -t altobert/backend-config-services .
 docker push altobert/backend-config-services
 cd ../
